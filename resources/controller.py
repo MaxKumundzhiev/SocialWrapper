@@ -3,26 +3,24 @@ store main abstract behaviour for the resource
 """
  
 from abc import ABC, abstractclassmethod
-    
-class ResourceCredentialsValdiator(ABC):
+
+
+class ResourceCredentialsValidator(ABC):
     """ Basic representation of resource credentials validator. """
     
     def __init__(self):
         self.resource_basic_url = None
         self.user_token = None
         self.user_id = None
-        
-    @abstractclassmethod
-    def get_credentials_from_machine_environment(self):
-        pass
     
-    @abstractclassmethod
+    @classmethod
     def get_user_id(self):
-        pass
-    
-    @abstractclassmethod
+        ...
+
+    @classmethod
     def validate_credentials(self):
-        pass
+        ...
+
 
 class ContentUploader(ABC):
     """ Basic representation of content uploader. """
